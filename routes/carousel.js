@@ -1,8 +1,9 @@
 const router = require("koa-router")();
+const utils = require("../utils/utils");
 
-router.prefix("/playlist");
+router.prefix("/carousel");
 router.get("/string", async (ctx) => {
-  ctx.body = "hello carousel";
+  ctx.body = utils.success("hello carousel");
 });
 
 module.exports = router;

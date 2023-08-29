@@ -8,8 +8,9 @@ const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
 
 // 引入router实例
-const playlist = require("./routes/carousel");
+const carousel = require("./routes/carousel");
 const login = require("./routes/login");
+const playlist = require("./routes/playlist");
 
 // error handler
 onerror(app);
@@ -40,8 +41,9 @@ app.use(async (ctx, next) => {
 
 // 路由
 router.prefix("/api");
-router.use(playlist.routes(), playlist.allowedMethods());
+router.use(carousel.routes(), carousel.allowedMethods());
 router.use(login.routes(), login.allowedMethods());
+router.use(playlist.routes(), playlist.allowedMethods());
 app.use(router.routes(), router.allowedMethods());
 
 // error-handling

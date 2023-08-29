@@ -36,7 +36,7 @@ const updateAccessToken = async () => {
 const getAccessToken = async () => {
   try {
     // 读取数据
-    let readRes = fs.readFileSync(fileName, "utf-8");
+    let readRes = fs.readFileSync(fileName, "utf8");
     // 将字符串形式转换为对象形式
     let readObj = JSON.parse(readRes);
     // 获取当前文件的最新access_token的创建时间的时间戳
@@ -60,4 +60,5 @@ setInterval(async () => {
   await updateAccessToken();
 }, (7200 - 300) * 1000);
 
+// 暴露获取accesstoken的方法
 module.exports = getAccessToken;
