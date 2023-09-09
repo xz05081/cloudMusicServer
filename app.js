@@ -4,8 +4,10 @@ const views = require("koa-views");
 const router = require("koa-router")();
 const json = require("koa-json");
 const onerror = require("koa-onerror");
-const bodyparser = require("koa-bodyparser");
+// const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
+const { koaBody } = require("koa-body");
+const path = require("path");
 
 // 引入router实例
 const carousel = require("./routes/carousel");
@@ -16,9 +18,18 @@ const playlist = require("./routes/playlist");
 onerror(app);
 
 // middlewares
+// app.use(
+//   bodyparser({
+//     enableTypes: ["json", "form", "text"],
+//   })
+// );
 app.use(
-  bodyparser({
-    enableTypes: ["json", "form", "text"],
+  koaBody({
+    multipart: true,
+    formidable: {
+      uploadDir: path.join(__dirname, "uploads"), // Directory to store uploaded files
+      keepExtensions: true, // Keep the original file extensions
+    },
   })
 );
 app.use(json());

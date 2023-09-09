@@ -8,6 +8,9 @@ const CODE = {
   AUTH_ERROR: 500001, // 认证失败或TOKEN过期
 };
 
+// 云开发的环境id
+const ENV = "music-2g3d1quo10152d9a";
+
 module.exports = {
   // 分页封装
   pager({ pageNum = 1, pageSize = 10 }) {
@@ -40,4 +43,5 @@ module.exports = {
     };
   },
   CODE,
+  ENV,
 };

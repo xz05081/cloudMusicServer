@@ -45,8 +45,9 @@ router.post("/process", async (ctx) => {
   try {
     // 用于存储返回的信息
     let info = "";
+    // 编辑的实现
     if (action == "edit") {
-      let res = await axios({
+      await axios({
         method: "post",
         url,
         data: {
@@ -56,7 +57,20 @@ router.post("/process", async (ctx) => {
         },
       });
       info = "编辑成功";
+    } else {
+      console.log("_id====>>>", _id);
+      // 删除的实现
+      let res = await axios({
+        method: "post",
+        url,
+        data: {
+          $url: "processDelete",
+          _id,
+        },
+      });
+      info = "删除成功";
     }
+    // 返回数据
     ctx.body = utils.success("", info);
   } catch (error) {
     console.log(error.message);

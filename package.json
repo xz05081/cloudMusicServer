@@ -9,9 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@cloudbase/node-sdk": "^2.11.0",
+    "@koa/multer": "^3.0.2",
     "axios": "^1.4.0",
     "debug": "^4.1.1",
+    "form-data": "^4.0.0",
     "koa": "^2.7.0",
+    "koa-body": "^6.0.1",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",
     "koa-json": "^2.0.2",
