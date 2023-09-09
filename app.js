@@ -13,6 +13,7 @@ const path = require("path");
 const carousel = require("./routes/carousel");
 const login = require("./routes/login");
 const playlist = require("./routes/playlist");
+const blog = require("./routes/blog");
 
 // error handler
 onerror(app);
@@ -55,6 +56,7 @@ router.prefix("/api");
 router.use(carousel.routes(), carousel.allowedMethods());
 router.use(login.routes(), login.allowedMethods());
 router.use(playlist.routes(), playlist.allowedMethods());
+router.use(blog.routes(), blog.allowedMethods());
 app.use(router.routes(), router.allowedMethods());
 
 // error-handling

@@ -52,6 +52,21 @@ const cloudDB = {
       },
     });
   },
+  // 统计记录的数量
+  databaseCount: async (query) => {
+    // 获取access_token
+    const access_token = await getAccessToken();
+    // 查询地址
+    const url = `https://api.weixin.qq.com/tcb/databasecount?access_token=${access_token}`;
+    return await axios({
+      method: "post",
+      url,
+      data: {
+        env: utils.ENV,
+        query,
+      },
+    });
+  },
 };
 
 module.exports = cloudDB;
